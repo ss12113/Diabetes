@@ -201,7 +201,7 @@ try {
 
 - **减少用户等待时间**  
   利用 API 流式传输，通过 `streamFetch` 实现实时返回数据，显著提升响应速度。  
-![image](https://github.com/ss12113/Diabetes/blob/main/2025-04-12%20233537.gif)
+![image](https://github.com/ss12113/Diabetes/blob/main/%E5%B1%8F%E5%B9%95%E5%BD%95%E5%88%B6%202025-04-12%20233537.gif)
   ```javascript
   await streamFetch(
     'https://fast.bemore.lol/v1/chat/completions',
@@ -221,7 +221,8 @@ try {
 
 - **科普内容卡片展示**  
   采用卡片堆叠的形式展示科普内容。用户点击标题时，内容区域平滑展开或收起，提升浏览体验。  
-  ```javascript
+![image](https://github.com/ss12113/Diabetes/blob/main/%E5%B1%8F%E5%B9%95%E5%BD%95%E5%88%B6%202025-04-12%20233649.gif)
+   ```javascript
   function renderScienceItems(items) {
     const scienceBox = document.getElementById('science-box');
     scienceBox.innerHTML = "";
@@ -256,7 +257,8 @@ try {
 
 - **健康数据趋势图与建议**  
   通过图表实时展示健康数据变化趋势（如体重和血糖），并基于数据动态提供健康建议。  
-  ```javascript
+![image](https://github.com/ss12113/Diabetes/blob/main/%E5%B1%8F%E5%B9%95%E5%BD%95%E5%88%B6%202025-04-12%20233817%20(1).gif)
+   ```javascript
   let chart; 
   function updateChart() {
     const ctx = document.getElementById('record-chart').getContext('2d');
@@ -361,7 +363,8 @@ try {
 
 - **侧栏自动回弹**  
   采用更便利的交互模式，页面切换后侧栏自动回弹，确保用户聚焦当前内容。  
-  ```javascript
+![image](https://github.com/ss12113/Diabetes/blob/main/%E5%B1%8F%E5%B9%95%E5%BD%95%E5%88%B6%202025-04-12%20233940.gif)
+   ```javascript
   function toggleSideMenu() {
     document.getElementById('side-menu').classList.toggle('open');
   }
