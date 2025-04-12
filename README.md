@@ -13,7 +13,7 @@
 
 ## 模型文件
 
-提供 [Hugging Face 仓库](https://huggingface.co/aiyawanan1112/Diabetes) 。
+模型托管在Hugging Face [Diabetes Model](https://huggingface.co/aiyawanan1112/Diabetes) 。
 
 ## 项目背景
 
