@@ -201,6 +201,7 @@ try {
 
 - **减少用户等待时间**  
   利用 API 流式传输，通过 `streamFetch` 实现实时返回数据，显著提升响应速度。  
+![image](https://github.com/ss12113/Diabetes/blob/main/2025-04-12%20233537.gif)
   ```javascript
   await streamFetch(
     'https://fast.bemore.lol/v1/chat/completions',
