@@ -195,11 +195,12 @@ try {
 }
 ```
 
+---
+
 ## App 亮点
 
 - **减少用户等待时间**  
-  利用 API 流式传输，通过 `streamFetch` 实现实时返回数据，提升响应速度。
-  
+  利用 API 流式传输，通过 `streamFetch` 实现实时返回数据，显著提升响应速度。  
   ```javascript
   await streamFetch(
     'https://fast.bemore.lol/v1/chat/completions',
@@ -211,15 +212,14 @@ try {
     (chunk) => {
       const cleaned = chunk.replace(/[#*]/g, "");
       generatedText += cleaned;
-      // 实时显示部分返回内容（调试可选）
+      // 实时显示返回内容（调试或即时反馈）
       scienceBox.innerHTML = `<p>科普内容正在获取中……</p><pre>${generatedText}</pre>`;
     }
   );
   ```
-  
+
 - **科普内容卡片展示**  
-  采用卡片堆叠格式展示科普内容，点击标题可平滑展开详细内容：
-  
+  采用卡片堆叠的形式展示科普内容。用户点击标题时，内容区域平滑展开或收起，提升浏览体验。  
   ```javascript
   function renderScienceItems(items) {
     const scienceBox = document.getElementById('science-box');
@@ -244,7 +244,7 @@ try {
       const contentDiv = document.createElement('div');
       contentDiv.className = 'science-content';
       contentDiv.innerText = item.content;
-      contentDiv.style.display = "none";  // 默认隐藏
+      contentDiv.style.display = "none";
       
       container.appendChild(titleDiv);
       container.appendChild(contentDiv);
@@ -252,10 +252,9 @@ try {
     });
   }
   ```
-  
+
 - **健康数据趋势图与建议**  
-  利用图表展示健康数据变化趋势，并给出对应的健康建议：
-  
+  通过图表实时展示健康数据变化趋势（如体重和血糖），并基于数据动态提供健康建议。  
   ```javascript
   let chart; 
   function updateChart() {
@@ -298,6 +297,79 @@ try {
         }
       });
     }
+  }
+  ```
+
+- **中英文切换**  
+  针对不同用户设置中英文切换功能。英文版本由队内留学生主导翻译，确保语义地道。示例代码如下：  
+  ```javascript
+  function applyLanguage() {
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    document.title = i18n[lang].title;
+    document.getElementById('app-title').innerText = i18n[lang].header_title;
+    document.getElementById('app-subtitle').innerText = i18n[lang].header_subtitle;
+    document.getElementById('menu-chat').innerText = i18n[lang].menu_chat;
+    document.getElementById('menu-record').innerText = i18n[lang].menu_record;
+    document.getElementById('menu-device').innerText = i18n[lang].menu_device;
+    document.getElementById('menu-science').innerText = i18n[lang].menu_science;
+    document.getElementById('menu-about').innerText = i18n[lang].menu_about;
+    document.getElementById('user-input').placeholder = i18n[lang].chat_placeholder;
+    document.getElementById('send-btn').innerText = i18n[lang].send_btn;
+    document.getElementById('label-date').innerText = i18n[lang].label_date;
+    document.getElementById('label-height').innerText = i18n[lang].label_height;
+    document.getElementById('label-weight').innerText = i18n[lang].label_weight;
+    document.getElementById('label-blood-sugar').innerText = i18n[lang].label_blood_sugar;
+    document.getElementById('label-exercise').innerText = i18n[lang].label_exercise;
+    document.getElementById('label-sleep').innerText = i18n[lang].label_sleep;
+    document.getElementById('save-btn').innerText = i18n[lang].save_btn;
+    document.getElementById('reset-btn').innerText = i18n[lang].reset_btn;
+    document.getElementById('history-title').innerText = i18n[lang].history_title;
+    document.getElementById('refresh-science').innerText = i18n[lang].refresh_science;
+    const loadingEl = document.getElementById('science-loading');
+    if (loadingEl) loadingEl.innerText = i18n[lang].loading_science;
+
+    const aboutTitleEl = document.getElementById('about-title');
+    const aboutContentEl = document.getElementById('about-content');
+    if (aboutTitleEl) aboutTitleEl.innerText = i18n[lang].about_title;
+    if (aboutContentEl) aboutContentEl.innerText = i18n[lang].about_content;
+
+    const btBtn = document.getElementById('bt-find');
+    if (btBtn) btBtn.innerText = i18n[lang].bt_connect;
+    const deviceTip = document.getElementById('device-tip');
+    if (deviceTip) deviceTip.innerText = i18n[lang].device_tip;
+
+    document.getElementById('lang-toggle').innerText = lang === 'zh' ? 'EN' : '中';
+  }
+
+  function toggleLanguage() {
+    lang = lang === 'zh' ? 'en' : 'zh';
+    applyLanguage();
+
+    // 重置科普内容区
+    cachedScienceData = null;
+    const scienceBox = document.getElementById('science-box');
+    scienceBox.innerHTML = `<p id="science-loading">${i18n[lang].loading_science}</p>`;
+    scienceStreamActive = false;
+    scienceRequestCount = 0;
+    loadScience();
+
+    displayRecords();
+    updateChart();
+  }
+  ```
+
+- **侧栏自动回弹**  
+  采用更便利的交互模式，页面切换后侧栏自动回弹，确保用户聚焦当前内容。  
+  ```javascript
+  function toggleSideMenu() {
+    document.getElementById('side-menu').classList.toggle('open');
+  }
+
+  function switchSection(sectionId) {
+    // 切换页面时自动关闭侧边栏
+    document.getElementById('side-menu').classList.remove('open');
+    document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
+    document.getElementById(sectionId).style.display = 'block';
   }
   ```
 
