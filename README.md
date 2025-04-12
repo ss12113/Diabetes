@@ -257,7 +257,7 @@ try {
 
 - **健康数据趋势图与建议**  
   通过图表实时展示健康数据变化趋势（如体重和血糖），并基于数据动态提供健康建议。  
-![image](https://github.com/ss12113/Diabetes/blob/main/%E5%B1%8F%E5%B9%95%E5%BD%95%E5%88%B6%202025-04-12%20233817%20(1).gif)
+![image](https://github.com/ss12113/Diabetes/blob/main/%E5%B1%8F%E5%B9%95%E5%BD%95%E5%88%B6%202025-04-12%20233817.gif)
    ```javascript
   let chart; 
   function updateChart() {
@@ -305,7 +305,8 @@ try {
 
 - **中英文切换**  
   针对不同用户设置中英文切换功能。英文版本由队内留学生主导翻译，确保语义地道。示例代码如下：  
-  ```javascript
+  # 演示同下文边栏回弹
+   ```javascript
   function applyLanguage() {
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
     document.title = i18n[lang].title;
