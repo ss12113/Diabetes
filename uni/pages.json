@@ -1,0 +1,16 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarBackgroundColor": "#4CAF50",
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "健康助手"
+      }
+    }
+  ],
+  "globalStyle": {
+    "backgroundColor": "#eef2f5"
+  }
+}

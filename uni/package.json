@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "chart.js": "^4.4.8",
+    "cross-fetch": "^4.1.0",
+    "whatwg-fetch": "^3.6.20"
+  }
+}
