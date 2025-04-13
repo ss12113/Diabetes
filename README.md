@@ -12,7 +12,7 @@
 
 ## 模型文件
 
-模型托管至Hugging Face仓库 [aiyawanan1112-Diabetes](https://hf-mirror.com/aiyawanan1112/Diabetes) 。
+模型托管至Hugging Face仓库 [Diabetes-Model](https://hf-mirror.com/aiyawanan1112/Diabetes/tree/main) 。
 
 ## 数据来源
 
