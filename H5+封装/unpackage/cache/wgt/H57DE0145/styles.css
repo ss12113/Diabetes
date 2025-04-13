@@ -1,0 +1,212 @@
+/* styles.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #eef2f5;
+  color: #333;
+}
+
+/* 主容器：适应手机屏幕（左右缩小，最多480px），上下边距适中 */
+.app-container {
+  width: 100%;
+  max-width: 480px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 侧边菜单样式 */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #4CAF50;
+  color: #fff;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  padding-top: 60px;
+}
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+}
+.side-menu ul li {
+  padding: 15px 20px;
+  cursor: pointer;
+}
+.side-menu ul li:hover {
+  background-color: #45a049;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* 汉堡菜单按钮 */
+.hamburger {
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+/* 头部样式 */
+.app-header {
+  background-color: #4CAF50;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 20px 15px;
+}
+.header-content {
+  flex: 1;
+}
+.app-header h1 {
+  font-size: 24px;
+}
+.app-header p {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* 主体内容 */
+.main-content {
+  flex: 1;
+  padding: 20px 15px;
+  overflow-y: auto;
+}
+
+/* 固定高度的聊天框（增大高度至500px），超出内容滚动显示 */
+.chat-box {
+  height: 500px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+/* 输入框样式 */
+.input-box {
+  display: flex;
+}
+.input-box input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.input-box button {
+  margin-left: 10px;
+  padding: 8px 15px;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* 记录表单样式 */
+.record-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.record-form label {
+  flex: 1;
+  min-width: 150px;
+}
+.record-form input {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+}
+.record-form button {
+  padding: 8px 15px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.record-box {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+/* 新闻部分 */
+.news-box {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+.news-box .news-item {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.news-box .news-item:last-child {
+  border-bottom: none;
+}
+.news-box .news-item h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.news-box .news-item p {
+  font-size: 14px;
+  color: #555;
+}
+.news-box .news-item a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+/* 消息气泡样式 */
+.message {
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 6px;
+  max-width: 80%;
+  line-height: 1.4;
+}
+.user-message {
+  background-color: #d3f8d3;
+  align-self: flex-end;
+  text-align: right;
+}
+.bot-message {
+  background-color: #f1f1f1;
+  align-self: flex-start;
+  text-align: left;
+}
+
+/* 显示侧边菜单时修改 transform */
+.side-menu.open {
+  transform: translateX(0);
+}

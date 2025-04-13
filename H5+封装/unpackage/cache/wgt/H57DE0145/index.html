@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>健康助手</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 侧边菜单栏 -->
+  <div id="side-menu" class="side-menu">
+    <button class="close-btn" onclick="toggleSideMenu()">×</button>
+    <ul>
+      <li onclick="switchSection('chat-section'); toggleSideMenu();">对话</li>
+      <li onclick="switchSection('record-section'); toggleSideMenu();">档案</li>
+      <li onclick="switchSection('news-section'); toggleSideMenu(); loadNews();">新闻</li>
+    </ul>
+  </div>
+  <div class="app-container">
+    <!-- 顶部标题及汉堡菜单 -->
+    <header class="app-header">
+      <button class="hamburger" onclick="toggleSideMenu()">☰</button>
+      <div class="header-content">
+        <h1>健康助手</h1>
+        <p>健康 AI 对话 · 健康档案 · 健康新闻</p>
+      </div>
+    </header>
+    <!-- 主体内容区 -->
+    <main class="main-content">
+      <!-- 健康 AI 对话页面 -->
+      <section class="section" id="chat-section">
+        <div class="chat-box" id="chat-box"></div>
+        <div class="input-box">
+          <input type="text" id="user-input" placeholder="输入您的问题...">
+          <button onclick="sendMessage()">发送</button>
+        </div>
+      </section>
+      <!-- 健康档案页面 -->
+      <section class="section" id="record-section" style="display: none;">
+        <div class="record-form">
+          <label>
+            测量日期：
+            <input type="date" id="record-date">
+          </label>
+          <label>
+            血糖值 (mmol/L)：
+            <input type="number" step="0.1" id="blood-sugar" placeholder="例：5.6">
+          </label>
+          <label>
+            体重 (kg)：
+            <input type="number" step="0.1" id="weight" placeholder="例：70">
+          </label>
+          <label>
+            血压 (mmHg)：
+            <input type="text" id="blood-pressure" placeholder="例：120/80">
+          </label>
+          <button onclick="saveRecord()">保存记录</button>
+        </div>
+        <div class="record-box" id="record-box">
+          <h3>历史记录</h3>
+          <!-- 历史记录列表 -->
+        </div>
+      </section>
+      <!-- 健康新闻页面 -->
+      <section class="section" id="news-section" style="display: none;">
+        <div class="news-box" id="news-box">
+          <p>正在加载新闻……</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
