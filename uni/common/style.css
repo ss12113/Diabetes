@@ -1,0 +1,295 @@
+/* common/style.css */
+/* 重置样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 让 html 与 body 允许页面滚动，同时占满可视区域 */
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  font-family: Arial, sans-serif;
+  background-color: #eef2f5;
+  color: #333;
+}
+
+/* 主容器 */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+/* 侧边菜单样式 */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100%;
+  background-color: #4CAF50;
+  color: #fff;
+  padding-top: 60px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+.side-menu.open {
+  transform: translateX(0);
+}
+.side-menu .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+}
+.side-menu ul li {
+  padding: 15px 20px;
+  cursor: pointer;
+}
+.side-menu ul li:hover {
+  background-color: #45a049;
+}
+
+/* 头部 */
+.app-header {
+  background-color: #4CAF50;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 20px 15px;
+}
+.app-header .hamburger {
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 15px;
+}
+.app-header .title {
+  font-size: 24px;
+  margin: 0;
+}
+.app-header .subtitle {
+  font-size: 14px;
+  margin-top: 5px;
+}
+.app-header .lang-toggle {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* 主体内容 */
+.main-content {
+  flex: 1;
+  padding: 20px 15px;
+  overflow-y: auto;
+}
+
+/* 对话区 */
+.chat-box {
+  height: 50vh;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+.input-box {
+  display: flex;
+  gap: 10px;
+}
+.input-box textarea {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 16px;
+  overflow-y: auto;
+  resize: none;
+  line-height: 1.5;
+}
+.input-box button {
+  padding: 8px 15px;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* 记录表单 */
+.record-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.record-form .form-row {
+  flex: 1;
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+}
+.record-form .form-row text {
+  width: 90px;
+}
+.record-form input {
+  flex: 1;
+  padding: 6px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+}
+.record-buttons {
+  display: flex;
+  gap: 10px;
+}
+.record-buttons button {
+  padding: 8px 15px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.record-box {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  margin-bottom: 15px;
+}
+
+/* 科普板块 */
+.science-box {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  height: 50vh;
+  overflow-y: auto;
+}
+.science-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  cursor: pointer;
+}
+.science-item:last-child {
+  border-bottom: none;
+}
+.science-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #4CAF50;
+}
+.science-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  font-size: 14px;
+  color: #555;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+.science-item.expanded .science-content {
+  max-height: 500px;
+}
+
+/* 消息气泡 */
+.message {
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 6px;
+  max-width: 80%;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.user-message {
+  background-color: #d3f8d3;
+  text-align: right;
+}
+.bot-message {
+  background-color: #f1f1f1;
+  text-align: left;
+}
+
+/* 刷新科普按钮 */
+#refresh-science {
+  margin-bottom: 10px;
+  padding: 6px 12px;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+#refresh-science:hover {
+  background-color: #45a049;
+}
+
+/* 关于页 */
+#about-section {
+  padding: 20px 15px;
+}
+#about-section h2 {
+  font-size: 22px;
+  color: #4CAF50;
+  margin-bottom: 15px;
+}
+#about-section p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* 滚动框 */
+.scroll-box {
+  height: 150px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+/* 设备页按钮 */
+#device button {
+  padding: 8px 15px;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+#device button:hover {
+  background-color: #45a049;
+}
+
+/* 小屏幕适配 */
+@media (max-width: 480px) {
+  .app-header, .main-content {
+    padding: 15px;
+  }
+}
