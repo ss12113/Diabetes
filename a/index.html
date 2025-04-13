@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+   <!-- 设置手机自适应视口，禁止缩放，铺满整个屏幕 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>健康助手</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Chart.js 引入 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- 侧边菜单 -->
+  <div id="side-menu" class="side-menu">
+    <button class="close-btn" onclick="toggleSideMenu()">×</button>
+    <ul>
+      <li id="menu-chat" onclick="switchSection('chat-section');">对话</li>
+      <li id="menu-record" onclick="switchSection('record-section');">档案</li>
+      <li id="menu-device" onclick="switchSection('device');">设备</li>
+      <li id="menu-science" onclick="switchSection('science-section');">科普</li>
+      <li id="menu-about" onclick="switchSection('about-section');">关于</li>
+    </ul>
+  </div>
+
+  <div class="app-container">
+    <!-- 头部 -->
+    <header class="app-header">
+      <button class="hamburger" onclick="toggleSideMenu()">☰</button>
+      <h1 id="app-title">健康助手</h1>
+      <p id="app-subtitle">健康 AI 对话 · 健康档案 · 健康科普</p>
+      <button id="lang-toggle" class="lang-toggle" onclick="toggleLanguage()">EN</button>
+    </header>
+
+    <!-- 主体内容 -->
+    <main class="main-content">
+      <!-- 对话页 -->
+      <section class="section" id="chat-section">
+        <div class="chat-box" id="chat-box"></div>
+        <div class="input-box">
+          <!-- 修改：使用 textarea 控件并设置初始 rows 为 2 -->
+          <textarea id="user-input" placeholder="输入您的问题..." rows="2"></textarea>
+          <button id="send-btn" onclick="sendMessage()">发送</button>
+        </div>
+      </section>
+
+      <!-- 档案页 -->
+      <section class="section" id="record-section" style="display: none;">
+        <div class="record-form">
+          <label>
+            <span id="label-date">测量日期：</span>
+            <input type="date" id="record-date">
+          </label>
+          <label>
+            <span id="label-height">身高 (cm)：</span>
+            <input type="number" id="height" placeholder="例：170">
+          </label>
+          <label>
+            <span id="label-weight">体重 (kg)：</span>
+            <input type="number" id="weight" placeholder="例：70">
+          </label>
+          <label>
+            <span id="label-blood-sugar">血糖值 (mmol/L)：</span>
+            <input type="number" id="blood-sugar" placeholder="例：5.6">
+          </label>
+          <label>
+            <span id="label-exercise">运动情况：</span>
+            <input type="text" id="exercise" placeholder="例如：步行、跑步等">
+          </label>
+          <label>
+            <span id="label-sleep">睡眠时间 (小时)：</span>
+            <input type="number" id="sleep" placeholder="例：7.5">
+          </label>
+          <div class="record-buttons">
+            <button id="save-btn" onclick="saveRecord()">保存记录</button>
+            <button id="reset-btn" type="button" onclick="resetRecordForm()">重置</button>
+          </div>
+        </div>
+        <div class="record-box" id="record-box">
+          <h3 id="history-title">历史记录</h3>
+        </div>
+        <canvas id="record-chart" width="480" height="300"></canvas>
+        <div id="health-advice" class="scroll-box"></div>
+      </section>
+
+      <!-- 设备页 -->
+      <section class="section" id="device" style="display: none;">
+        <h2 id="device-title">设备</h2>
+        <p id="device-tip">点按查找按钮以连接血糖仪，获取您的专属建议</p>
+        <button id="bt-find" onclick="searchDevice()">查找</button>
+        <div id="device-advice" class="scroll-box"></div>
+      </section>
+
+      <!-- 科普页 -->
+      <section class="section" id="science-section" style="display: none;">
+        <button id="refresh-science" onclick="refreshScience()">刷新科普</button>
+        <div class="science-box" id="science-box">
+          <p id="science-loading">科普内容正在获取中……</p>
+        </div>
+      </section>
+
+      <!-- 关于页 -->
+      <section class="section" id="about-section" style="display: none;">
+        <h2 id="about-title">关于</h2>
+        <p id="about-content">
+          这是一个健康助手应用程序，提供健康 AI 对话、健康档案管理以及健康科普等服务，帮助您更好地关注健康生活。
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
