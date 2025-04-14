@@ -8,12 +8,11 @@
 
 ## 演示视频
 
-演示视频请前往：**（【“糖阈智控，芯筑健康”--- 演示视频】 https://www.bilibili.com/video/BV1inoEYhEJ3/?share_source=copy_web&vd_source=bf2df9f41f11a4f457b5e5aea6431261）**
-介绍视频请前往：**（【“糖阈智控，芯筑健康”--- 介绍视频】 https://www.bilibili.com/video/BV1jnoEYhEH2/?share_source=copy_web&vd_source=bf2df9f41f11a4f457b5e5aea6431261）**
-
+演示视频请前往： [“糖阈智控，芯筑健康”--- 演示视频](https://www.bilibili.com/video/BV1inoEYhEJ3/?share_source=copy_web&vd_source=bf2df9f41f11a4f457b5e5aea6431261) 
+介绍视频请前往： [“糖阈智控，芯筑健康”--- 介绍视频](https://www.bilibili.com/video/BV1jnoEYhEH2/?share_source=copy_web&vd_source=bf2df9f41f11a4f457b5e5aea6431261) 
 ## 模型文件
 
-模型托管至Hugging Face仓库 [Diabetes-Model](https://hf-mirror.com/aiyawanan1112/Diabetes/tree/main) 。
+模型托管至Hugging Face仓库 [Diabetes-Model](https://huggingface.co/aiyawanan1112/Diabetes/tree/main) 。
 
 ## 数据来源
 
